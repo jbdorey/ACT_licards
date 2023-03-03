@@ -124,7 +124,7 @@ ShinyMapR <- function(
     databaseSpp <- database %>% 
       dplyr::filter(.data[[taxonomyColumn]] == taxon2map %>% 
                       # Ensure UTF-8 encoding in text
-                      iconv(x, from = "UTF-8", to = "UTF-8", sub = "")) %>%
+                      iconv(., from = "UTF-8", to = "UTF-8", sub = "")) %>%
       tidyr::drop_na(decimalLongitude, decimalLatitude, eventDate) %>%
       dplyr::mutate(lng = decimalLongitude %>% as.numeric(),
                     lat = decimalLatitude)
